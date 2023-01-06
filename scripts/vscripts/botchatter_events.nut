@@ -2,8 +2,8 @@
 //     Author : T-Rizzle
 //------------------------------------------------------
 
-Msg("Including botchatter_events...\n");
-print("Bot Chatter starting up!")
+printl("Including botchatter_events...");
+printl("Bot Chatter starting up!");
 
 ::BotChatter.Events.OnGameEvent_heal_begin <- function (params)
 {

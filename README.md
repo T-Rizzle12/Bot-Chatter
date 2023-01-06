@@ -25,9 +25,9 @@ If you can't find the botchatter directory it should be automatically created af
 - [x] ~~Add bot friendly fire lines~~
 
 # Important Discussions:
-[Bugs](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000527997/)
-[Known Bugs](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000525930/)
-[Suggestions](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000534236/)
+- [Bugs](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000527997/)
+- [Known Bugs](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000525930/)
+- [Suggestions](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000534236/)
 
 Special thanks to smilzo https://steamcommunity.com/id/smilz0 for the base code that made this possible!
 

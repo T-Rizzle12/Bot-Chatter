@@ -4,7 +4,6 @@
 
 	::BotChatter <-
 	{
-		Ready = 1
 		Events = {}
 	}
 	::BotChatter.FileExists <- function (fileName)
@@ -121,6 +120,224 @@
 		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
 		
 		Incap_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/ledge_incap_lines.txt"))
+		{
+			local Array =
+			[
+				"I'm hanging off the side of this ledge!",
+				"I need some help!",
+				"I need a little help over here!",
+				"I slipped!",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/ledge_incap_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/ledge_incap_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Ledge_Incap_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/charger_lines.txt"))
+		{
+			local Array =
+			[
+				"Help a charger is crushing me!",
+				"I need some help!",
+				"Charger got me!",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/charger_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/charger_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Charger_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/smoker_lines.txt"))
+		{
+			local Array =
+			[
+				"Help a smoker got me!",
+				"I need some help!",
+				"Someone rescue me!",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/smoker_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/smoker_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Smoker_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/jockey_lines.txt"))
+		{
+			local Array =
+			[
+				"Help a jockey is riding me!",
+				"I need some help!",
+				"Get this thing off of me!",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/jockey_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/jockey_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Jockey_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/hunter_lines.txt"))
+		{
+			local Array =
+			[
+				"Help a hunter pounced me!",
+				"I need some help!",
+				"Get this thing off of me!",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/hunter_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/hunter_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Hunter_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/enter_checkpoint_lines.txt"))
+		{
+			local Array =
+			[
+				"We made it!",
+				"We have a saferoom ahead!",
+				"Get in here right now!",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/enter_checkpoint_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/enter_checkpoint_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Enter_Checkpoint_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/exit_checkpoint_lines.txt"))
+		{
+			local Array =
+			[
+				"Lets do this!",
+				"Ready for some fun!",
+				"Time to go!",
+				"Lets go!",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/exit_checkpoint_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/exit_checkpoint_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Exit_Checkpoint_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/black_and_white_lines.txt"))
+		{
+			local Array =
+			[
+				"Guys, if I go down again, i'm dead.",
+				"I need some first aid or i'm gonna die.",
+				"I'm not gonna make it much further without some first aid.",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/black_and_white_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/black_and_white_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Black_And_White_Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/after_revive_lines.txt"))
+		{
+			local Array =
+			[
+				"Thank you!",
+				"Thank's for the help.",
+				"Thank you for saving me.",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/after_revive_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/after_revive_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		After_Revive_Array <- split(fileContents, "\n");
 	}
 	::BotChatter.OnHealStart <- function (healer, healee, params)
 	{	
@@ -203,8 +420,8 @@
 		if(IsPlayerABot(player) && player.IsSurvivor())
 		{	
 			//local player = player.GetPlayerUserId();
-			local down_line = RandomInt(0,(Array.len() - 1));
-			Say(player, Array[down_line], false);
+			local down_line = RandomInt(0,(Incap_Array.len() - 1));
+			Say(player, Incap_Array[down_line], false);
 		}
 	}
 	::BotChatter.OnPlayerLedgeGrab <- function (player, params)
@@ -212,23 +429,8 @@
 		if(IsPlayerABot(player))
 		{	
 			//local player = player.GetPlayerUserId();
-			local down_line = RandomInt(0,3);
-			if(down_line == 0)
-			{
-				Say(player, "I'm hanging off the side of this ledge!", false);
-			}
-			else if(down_line == 1)
-			{
-				Say(player, "I need some help!", false);
-			}
-			else if(down_line == 2)
-			{
-				Say(player, "I need a little help over here!", false);
-			}
-			else if(down_line == 3)
-			{
-				Say(player, "I slipped!", false);
-			}
+			local down_line = RandomInt(0,(Ledge_Incap_Array.len() - 1));
+			Say(player, Ledge_Incap_Array[down_line], false);
 		}
 	}
 	::BotChatter.OnChargerPummelStart <- function (player, params)
@@ -236,19 +438,8 @@
 		if(IsPlayerABot(player))
 		{	
 			//local player = player.GetPlayerUserId();
-			local pummel_line = RandomInt(0,2);
-			if(pummel_line == 0)
-			{
-				Say(player, "Help a charger is crushing me!", false);
-			}
-			else if(pummel_line == 1)
-			{
-				Say(player, "I need some help!", false);
-			}
-			else if(pummel_line == 2)
-			{
-				Say(player, "Charger got me!", false);
-			}
+			local pummel_line = RandomInt(0,(Charger_Array.len() - 1));
+			Say(player, Charger_Array[pummel_line], false);
 		}
 	}
 	::BotChatter.OnSmokerTongueGrab <- function (player, params)
@@ -256,19 +447,8 @@
 		if(IsPlayerABot(player))
 		{	
 			//local player = player.GetPlayerUserId();
-			local smoker_line = RandomInt(0,2);
-			if(smoker_line == 0)
-			{
-				Say(player, "Help a smoker got me!", false);
-			}
-			else if(smoker_line == 1)
-			{
-				Say(player, "I need some help!", false);
-			}
-			else if(smoker_line == 2)
-			{
-				Say(player, "Someone rescue me!", false);
-			}
+			local smoker_line = RandomInt(0,(Smoker_Array.len() - 1));
+			Say(player, Smoker_Array[smoker_line], false);
 		}
 	}
 	::BotChatter.OnJockeyRide <- function (player, params)
@@ -276,19 +456,8 @@
 		if(IsPlayerABot(player))
 		{	
 			//local player = player.GetPlayerUserId();
-			local jockey_line = RandomInt(0,2);
-			if(jockey_line == 0)
-			{
-				Say(player, "Help a jockey is riding me!", false);
-			}
-			else if(jockey_line == 1)
-			{
-				Say(player, "I need some help!", false);
-			}
-			else if(jockey_line == 2)
-			{
-				Say(player, "Get this thing off of me!", false);
-			}
+			local jockey_line = RandomInt(0,(Jockey_Array.len() - 1));
+			Say(player, Jockey_Array[jockey_line], false);
 		}
 	}
 	::BotChatter.OnHunterPounce <- function (player, params)
@@ -296,63 +465,26 @@
 		if(IsPlayerABot(player))
 		{	
 			//local player = player.GetPlayerUserId();
-			local hunter_line = RandomInt(0,2);
-			if(hunter_line == 0)
-			{
-				Say(player, "Help a hunter pounced me!", false);
-			}
-			else if(hunter_line == 1)
-			{
-				Say(player, "I need some help!", false);
-			}
-			else if(hunter_line == 2)
-			{
-				Say(player, "Get this thing off of me!", false);
-			}
+			local hunter_line = RandomInt(0,(Hunter_Array.len() - 1));
+			Say(player, Hunter_Array[hunter_line], false);
 		}
 	}
 	::BotChatter.OnPlayerEnteredCheckpoint <- function (player, params)
 	{
-		if(IsPlayerABot(player) && player.IsSurvivor() && 10 < player.GetAliveDuration())
+		if(IsPlayerABot(player) && player.IsSurvivor() && Director.IsAnySurvivorInExitCheckpoint())
 		{	
 			//local player = player.GetPlayerUserId();
-			local saferoom_line = RandomInt(0,2);
-			if(saferoom_line == 0)
-			{
-				Say(player, "We made it!", false);
-			}
-			else if(saferoom_line == 1)
-			{
-				Say(player, "We have a saferoom ahead!", false);
-			}
-			else if(saferoom_line == 2)
-			{
-				Say(player, "Get in here right now!", false);
-			}
+			local saferoom_line = RandomInt(0,(Enter_Checkpoint_Array.len() - 1));
+			Say(player, Enter_Checkpoint_Array[saferoom_line], false);
 		}
 	}
 	::BotChatter.OnPlayerLeftCheckpoint <- function (player, params)
 	{
-		if(IsPlayerABot(player) && player.IsSurvivor() &&  10 < player.GetAliveDuration())
+		if(IsPlayerABot(player) && player.IsSurvivor() && Director.HasAnySurvivorLeftSafeArea())
 		{	
 			//local player = player.GetPlayerUserId();
-			local saferoom_line = RandomInt(0,3);
-			if(saferoom_line == 0)
-			{
-				Say(player, "Lets do this!", false);
-			}
-			else if(saferoom_line == 1)
-			{
-				Say(player, "Ready for some fun!", false);
-			}
-			else if(saferoom_line == 2)
-			{
-				Say(player, "Time to go!", false);
-			}
-			else if(saferoom_line == 3)
-			{
-				Say(player, "Lets go!", false);
-			}
+			local saferoom_line = RandomInt(0,(Exit_Checkpoint_Array.len() - 1));
+			Say(player, Exit_Checkpoint_Array[saferoom_line], false);
 		}
 	}
 	::BotChatter.OnReviveEnd <- function (player, last_incap, params)
@@ -362,37 +494,13 @@
 			//local player = player.GetPlayerUserId();
 			if(last_incap)
 			{
-				local last_line = RandomInt(0,2);
-				
-				if(last_line == 0)
-				{
-					Say(player, "Guys, if I go down again, i'm dead.", true);
-				}
-				else if(last_line == 1)
-				{
-					Say(player, "I need some first aid or i'm gonna die.", true);
-				}
-				else if(last_line == 2)
-				{
-					Say(player, "I'm not gonna make it much further without some first aid.", true);
-				}
+				local last_line = RandomInt(0,(Black_And_White_Array.len() - 1));
+				Say(player, Black_And_White_Array[last_line], true);
 			}
 			else
 			{
-				local revive_line = RandomInt(0,2);
-				
-				if(revive_line == 0)
-				{
-					Say(player, "Thank you!", false);
-				}
-				else if(revive_line == 1)
-				{
-					Say(player, "Thank's for the help.", false);
-				}
-				else if(revive_line == 2)
-				{
-					Say(player, "Thank you for saving me.", false);
-				}
+				local revive_line = RandomInt(0,(After_Revive_Array.len() - 1));
+				Say(player, After_Revive_Array[revive_line], false);
 			}
 		}
 	}

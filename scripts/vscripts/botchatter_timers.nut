@@ -127,13 +127,13 @@ if (!("BotChatterTimers" in getroottable()))
 	
 	::BotChatterTimers.RemoveThinker <- function(name)
 	{
-		if (!(name in ::BotAIFixTimers.Thinkers))
+		if (!(name in ::BotChatterTimers.Thinkers))
 		{
 			//error("[BotChatterTimers][WARN] RemoveThinker - A thinker with this name does not exist: " + name + "\n");
 			return false;
 		}
 		
-		local thinkerEnt = ::BotAIFixTimers.Thinkers[name].Ent;
+		local thinkerEnt = ::BotChatterTimers.Thinkers[name].Ent;
 		if (thinkerEnt && thinkerEnt.IsValid())
 			thinkerEnt.Kill();
 		else

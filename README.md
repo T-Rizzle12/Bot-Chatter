@@ -1,8 +1,6 @@
 # Important
 I have not forgotten about this addon, I have been focusing on fixing bugs in my other addon Bot AI Improvements. Now that Bot AI Improvements is in a stable and mostly bug free state. I will resume the Major Update I have planned for this addon.
 
-After playing with the left 4 bots recent update I noticed that the bots had the chance to say GG at the end of a match. I also was reading the comment section of the mod with people actually asking for more lines for the bots to say. So, I took it upon myself to make this mod. The bots will talk when certain game events are trigged, like when they try to heal someone or they get incapacitated. The amount of things the bots can say are limited right now, but the list will expand overtime.
-
 # Major Update
 Beta - You can now customise the kill lines. Just go to Program Files (x86)\Steam\steamapps\common\Left 4 Dead 2\left4dead2\ems\botchatter\cfg
 If you can't find the botchatter directory it should be automatically created after loading into a map. :)

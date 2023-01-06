@@ -20,17 +20,14 @@ OnGameEvent_revive_success
 OnGameEvent_player_death
 
 # Todo:
-Have bots create random conversations
+[]Have bots create random conversations
 [Partially Added] Allow people to have custom messages
-[Added] [strike]Add bot friendly fire lines[/strike]
+[]--Add bot friendly fire lines--
 
 # Important Discussions:
-[url=https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000527997/] Bugs[/url]
-[url=https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000525930/] Known Bugs[/url]
-[url=https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000534236/] Suggestions[/url]
-
-#Here is this addon’s source code 
-[url=https://github.com/T-Rizzle12/Bot-Chatter/] GitHub Repository[/url]
+[Bugs](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000527997/)
+[Known Bugs](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000525930/)
+[Suggestions](https://steamcommunity.com/workshop/filedetails/discussion/2857764764/3421068324000534236/)
 
 Special thanks to smilzo https://steamcommunity.com/id/smilz0 for the base code that made this possible!
 

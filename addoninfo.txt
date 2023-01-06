@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+  addonSteamAppID   	550
+  addontitle		"Bot Chatter"
+  addonversion	    	"1.0"
+  addonauthor 	   	"T-Rizzle"
+  addonDescription  	"Allows bots to use the chat"
+  addonContent_Script 	1
+}

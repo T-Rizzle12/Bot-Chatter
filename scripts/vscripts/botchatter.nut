@@ -39,8 +39,8 @@
 	}
 	::BotChatter.Initialize <- function (modename, mapname)
 	{
-		Msg(modename);
-		Msg(mapname);
+		printl(modename);
+		printl(mapname);
 		if(!BotChatter.FileExists("botchatter/cfg/kill_lines.txt"))
 		{
 			local Array =
@@ -97,6 +97,30 @@
 		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
 		
 		Array <- split(fileContents, "\n");
+		
+		if(!BotChatter.FileExists("botchatter/cfg/incap_lines.txt"))
+		{
+			local Array =
+			[
+				"I'm Down!",
+				"I need some help!",
+				"Help me!",
+			]
+			local fileContents2 = ""
+			foreach(str in Array)
+			{
+				if (fileContents2 == "")
+					fileContents2 = str;
+				else
+					fileContents2 += "\n" + str;
+			}
+			StringToFile("botchatter/cfg/incap_lines.txt", fileContents2);
+		}
+		local fileContents = FileToString("botchatter/cfg/incap_lines.txt");
+		fileContents = BotChatter.StringReplace(fileContents, "\\r", "\n");
+		fileContents = BotChatter.StringReplace(fileContents, "\\n\\n", "\n");   // Basically: any CRLF combination ("\n", "\r", "\r\n") becomes "\n"
+		
+		Incap_Array <- split(fileContents, "\n");
 	}
 	::BotChatter.OnHealStart <- function (healer, healee, params)
 	{	
@@ -179,19 +203,8 @@
 		if(IsPlayerABot(player) && player.IsSurvivor())
 		{	
 			//local player = player.GetPlayerUserId();
-			local down_line = RandomInt(0,2);
-			if(down_line == 0)
-			{
-				Say(player, "I'm Down!", false);
-			}
-			else if(down_line == 1)
-			{
-				Say(player, "I need some help!", false);
-			}
-			else if(down_line == 2)
-			{
-				Say(player, "Help me!", false);
-			}
+			local down_line = RandomInt(0,(Array.len() - 1));
+			Say(player, Array[down_line], false);
 		}
 	}
 	::BotChatter.OnPlayerLedgeGrab <- function (player, params)

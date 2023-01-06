@@ -1,5 +1,6 @@
 # Important
 I have not forgotten about this addon, I have been focusing on fixing bugs in my other addon Bot AI Improvements. Now that Bot AI Improvements is in a stable and mostly bug free state. I will resume the Major Update I have planned for this addon.
+This is also the beta version of the addon, some features are not in the current workshop version
 
 # Major Update
 Beta - You can now customise the kill lines. Just go to Program Files (x86)\Steam\steamapps\common\Left 4 Dead 2\left4dead2\ems\botchatter\cfg

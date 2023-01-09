@@ -22,7 +22,7 @@ If you can't find the botchatter directory it should be automatically created af
 
 # Todo:
 - [ ] Have bots create random conversations
-- [ ] [Partially Added] Allow people to have custom messages
+- [ ] [Testing] Allow people to have custom messages
 - [x] ~~Add bot friendly fire lines~~
 
 # Important Discussions:

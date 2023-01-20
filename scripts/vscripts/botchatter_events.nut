@@ -115,6 +115,7 @@ printl("Bot Chatter starting up!");
 {
 	BotChatter.OnRoundEnd(params);
 }
+
 ::BotChatter.Events.OnGameEvent_map_transition <- function (params)
 {
 	BotChatter.OnMapTransition(params);

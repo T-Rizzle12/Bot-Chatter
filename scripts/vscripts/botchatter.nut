@@ -347,6 +347,14 @@
 	{
 		BotChatter.RemoveTimer("FireCheck");
 	}
+	::BotChatter.OnRoundEnd <- function (params)
+	{
+		BotChatter.AddonStop();
+	}
+	::BotChatter.OnMapTransition <- function (params)
+	{
+		BotChatter.AddonStop();
+	}
 	::BotChatter.OnHealStart <- function (healer, healee, params)
 	{	
 		if(IsPlayerABot(healer))

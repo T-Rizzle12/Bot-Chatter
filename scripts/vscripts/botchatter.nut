@@ -365,6 +365,7 @@
 				local rand = RandomInt(0,100)
 				if(rand == 0)
 				{
+					DoEntFire("!self", "SpeakResponseConcept", "Laugh", 0.0, null, player);
 				}
 			}
 		}

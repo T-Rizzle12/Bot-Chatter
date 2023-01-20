@@ -471,7 +471,7 @@
 	}
 	::BotChatter.OnPlayerEnteredCheckpoint <- function (player, params)
 	{
-		if(IsPlayerABot(player) && player.IsSurvivor() && Director.IsAnySurvivorInExitCheckpoint())
+		if(IsPlayerABot(player) && player.IsSurvivor() && Director.IsAnySurvivorInExitCheckpoint() && NetProps.GetPropInt(player, "m_iTeamNum") == 2)
 		{	
 			//local player = player.GetPlayerUserId();
 			local saferoom_line = RandomInt(0,(Enter_Checkpoint_Array.len() - 1));
@@ -480,7 +480,7 @@
 	}
 	::BotChatter.OnPlayerLeftCheckpoint <- function (player, params)
 	{
-		if(IsPlayerABot(player) && player.IsSurvivor() && Director.HasAnySurvivorLeftSafeArea())
+		if(IsPlayerABot(player) && player.IsSurvivor() && Director.HasAnySurvivorLeftSafeArea() && NetProps.GetPropInt(player, "m_iTeamNum") == 2)
 		{	
 			//local player = player.GetPlayerUserId();
 			local saferoom_line = RandomInt(0,(Exit_Checkpoint_Array.len() - 1));

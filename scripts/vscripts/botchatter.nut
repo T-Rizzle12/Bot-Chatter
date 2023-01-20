@@ -341,11 +341,11 @@
 	}
 	::BotChatter.OnRoundStart <- function (params)
 	{
-		BotChatterTimers.AddTimer("ValidCheck", 1.0, BotChatter.ValidCheck, {}, true);
+		BotChatterTimers.AddTimer("RandomVocal", 1.0, BotChatter.RandomVocal, {}, true);
 	}
 	::BotChatter.AddonStop <- function ()
 	{
-		BotChatter.RemoveTimer("FireCheck");
+		BotChatter.RemoveTimer("RandomVocal");
 	}
 	::BotChatter.OnRoundEnd <- function (params)
 	{
@@ -354,6 +354,10 @@
 	::BotChatter.OnMapTransition <- function (params)
 	{
 		BotChatter.AddonStop();
+	}
+	::BotChatter.RandomVocal <- function (params)
+	{
+		local player = null;
 	}
 	::BotChatter.OnHealStart <- function (healer, healee, params)
 	{	

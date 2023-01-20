@@ -111,6 +111,11 @@ printl("Bot Chatter starting up!");
 	}
 }
 
+::BotChatter.Events.OnGameEvent_round_start <- function (params)
+{
+	BotChatter.OnRoundStart(params);
+}
+
 ::BotChatter.Events.OnGameEvent_round_end <- function (params)
 {
 	BotChatter.OnRoundEnd(params);

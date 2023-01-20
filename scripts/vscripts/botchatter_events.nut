@@ -111,4 +111,13 @@ printl("Bot Chatter starting up!");
 	}
 }
 
+::BotChatter.Events.OnGameEvent_round_end <- function (params)
+{
+	BotChatter.OnRoundEnd(params);
+}
+::BotChatter.Events.OnGameEvent_map_transition <- function (params)
+{
+	BotChatter.OnMapTransition(params);
+}
+
 __CollectEventCallbacks(::BotChatter.Events, "OnGameEvent_", "GameEventCallbacks", RegisterScriptGameEventListener);

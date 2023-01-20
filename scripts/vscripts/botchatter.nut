@@ -339,6 +339,14 @@
 		
 		After_Revive_Array <- split(fileContents, "\n");
 	}
+	::BotChatter.OnRoundStart <- function (params)
+	{
+		BotChatterTimers.AddTimer("ValidCheck", 1.0, BotChatter.ValidCheck, {}, true);
+	}
+	::BotChatter.AddonStop <- function ()
+	{
+		BotChatter.RemoveTimer("FireCheck");
+	}
 	::BotChatter.OnHealStart <- function (healer, healee, params)
 	{	
 		if(IsPlayerABot(healer))

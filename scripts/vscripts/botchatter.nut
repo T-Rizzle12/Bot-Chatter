@@ -358,6 +358,16 @@
 	::BotChatter.RandomVocal <- function (params)
 	{
 		local player = null;
+		while(player = Entities.FindByClassname(player, "player"))
+		{
+			if(player.IsValid() && player.IsSurvivor() && !player.IsDead() && !player.IsDying())
+			{
+				local rand = RandomInt(0,100)
+				if(rand == 0)
+				{
+				}
+			}
+		}
 	}
 	::BotChatter.OnHealStart <- function (healer, healee, params)
 	{	

@@ -360,7 +360,7 @@
 		local player = null;
 		while(player = Entities.FindByClassname(player, "player"))
 		{
-			if(player.IsValid() && player.IsSurvivor() && !player.IsDead() && !player.IsDying())
+			if(player.IsValid() && IsPlayerABot(player) && player.IsSurvivor() && !player.IsDead() && !player.IsDying())
 			{
 				local rand = RandomInt(0,100)
 				if(rand == 0)

@@ -2,7 +2,7 @@ Msg("scriptedmode_addon BC\n");
 
 BotChatter_ScriptMode_Init <- ScriptMode_Init;
 //=========================================================
-// called from C++ when you try and kick off a mode to 
+// called from C++ when you try and kick off a mode to
 // decide whether scriptmode wants to handle it
 //=========================================================
 function ScriptMode_Init( modename, mapname )
@@ -17,14 +17,14 @@ function ScriptMode_Init( modename, mapname )
 	catch(exception)
 	{
 		//bScriptedModeValid = false;
-		
+
 		printl("ScriptMode_Init EXCEPTION: " + exception);
 	}
-	
+
 	if ( !bScriptedModeValid )
 	{
 		printl( "Enabled ScriptMode for " + modename + " and now Initializing" );
-		
+
 		IncludeScript( mapname + "_" + modename, g_MapScript );
 
 		// Add to the spawn array
@@ -44,13 +44,13 @@ function ScriptMode_Init( modename, mapname )
 		{
 			MergeSessionOptionTables();
 		}
-		
+
 		// Sanitize the map
 		if ( "SanitizeTable" in this )
 		{
 			SanitizeMap( SanitizeTable );
 		}
-		
+
 		if ( "SessionSpawns" in getroottable() )
 		{
 			EntSpawn_DoIncludes( ::SessionSpawns );
@@ -63,14 +63,14 @@ function ScriptMode_Init( modename, mapname )
 		AddToScriptHelp( getroottable() );
 		AddToScriptHelp( g_MapScript );
 		AddToScriptHelp( g_ModeScript );
-		
+
 		// go ahead and call all the precache elements - the MapSpawn table ones then any explicit OnPrecache's
 		ScriptedPrecache();
 		ScriptMode_SystemCall("Precache");
 	}
-	
+
 	IncludeScript("botchatter");
 	BotChatter.Initialize(modename, mapname);
-	
+
 	return true;
 }

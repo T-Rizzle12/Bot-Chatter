@@ -22,12 +22,12 @@ printl("Bot Chatter starting up!");
 }
 
 ::BotChatter.Events.OnGameEvent_player_hurt <- function (params)
-{	
+{
 	if ("userid" in params && "attacker" in params)
 	{
 		local player = g_MapScript.GetPlayerFromUserID(params["userid"]);
 		local player2 = g_MapScript.GetPlayerFromUserID(params["attacker"]);
-	
+
 		BotChatter.OnFriendlyFire(player, player2, params);
 	}
 }
@@ -42,35 +42,35 @@ printl("Bot Chatter starting up!");
 ::BotChatter.Events.OnGameEvent_player_ledge_grab <- function (params)
 {
 	local player = g_MapScript.GetPlayerFromUserID(params["userid"]);
-	
+
 	BotChatter.OnPlayerLedgeGrab(player, params);
 }
 
 ::BotChatter.Events.OnGameEvent_charger_pummel_start <- function (params)
 {
 	local player = g_MapScript.GetPlayerFromUserID(params["victim"]);
-	
+
 	BotChatter.OnChargerPummelStart(player, params);
 }
 
 ::BotChatter.Events.OnGameEvent_tongue_grab <- function (params)
 {
 	local player = g_MapScript.GetPlayerFromUserID(params["victim"]);
-	
+
 	BotChatter.OnSmokerTongueGrab(player, params);
 }
 
 ::BotChatter.Events.OnGameEvent_jockey_ride <- function (params)
 {
 	local player = g_MapScript.GetPlayerFromUserID(params["victim"]);
-	
+
 	BotChatter.OnJockeyRide(player, params);
 }
 
 ::BotChatter.Events.OnGameEvent_lunge_pounce <- function (params)
 {
 	local player = g_MapScript.GetPlayerFromUserID(params["victim"]);
-	
+
 	BotChatter.OnHunterPounce(player, params);
 }
 
@@ -79,7 +79,7 @@ printl("Bot Chatter starting up!");
 	if ("userid" in params)
 	{
 		local player = g_MapScript.GetPlayerFromUserID(params["userid"]);
-	
+
 		BotChatter.OnPlayerEnteredCheckpoint(player, params);
 	}
 }
@@ -97,7 +97,7 @@ printl("Bot Chatter starting up!");
 {
 	local player = g_MapScript.GetPlayerFromUserID(params["subject"]);
 	local last_incap = params["lastlife"];
-	
+
 	BotChatter.OnReviveEnd(player, last_incap, params);
 }
 
@@ -106,7 +106,7 @@ printl("Bot Chatter starting up!");
 	if ("attacker" in params)
 	{
 		local player = g_MapScript.GetPlayerFromUserID(params["attacker"]);
-		
+
 		BotChatter.OnInfectedDeath(player, params);
 	}
 }

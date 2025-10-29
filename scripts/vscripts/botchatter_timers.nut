@@ -21,7 +21,7 @@ if (!("BotChatterTimers" in getroottable()))
 			error("[BotChatterTimers][WARN] AddTimer - A timer with this name already exists: " + name + "\n");
 			return false;
 		}
-		
+
 		local si = getstackinfos(2);
 		local f = "";
 		local s = "";
@@ -33,10 +33,10 @@ if (!("BotChatterTimers" in getroottable()))
 		if ("line" in si)
 			l = si.line;
 		local dbgInfo = "Func: " + f + " - Src: " + s + " - Line: " + l;
-		
+
 		local timer = { Delay = delay, Func = func, params = params, Repeat = repeat, LastTime = Time(), DbgInfo = dbgInfo };
 		::BotChatterTimers.Timers[name] <- timer;
-		
+
 		return true;
 	}
 
@@ -47,16 +47,16 @@ if (!("BotChatterTimers" in getroottable()))
 			//error("[BotChatterTimers][WARN] RemoveTimer - A timer with this name does not exist: " + name + "\n");
 			return false;
 		}
-		
+
 		delete ::BotChatterTimers.Timers[name];
-		
+
 		return true;
 	}
 
 	::BotChatterTimers.ThinkFunc <- function()
 	{
 		local curtime = Time();
-		
+
 		foreach (timerName, timer in ::BotChatterTimers.Timers)
 		{
 			if ((curtime - timer.LastTime) >= timer.Delay)
@@ -65,7 +65,7 @@ if (!("BotChatterTimers" in getroottable()))
 					timer.LastTime = curtime;
 				else
 					delete ::BotChatterTimers.Timers[timerName];
-				
+
 				try
 				{
 					timer.Func(timer.params);
@@ -76,10 +76,10 @@ if (!("BotChatterTimers" in getroottable()))
 				}
 			}
 		}
-		
+
 		return 0.01;
 	}
-	
+
 	::BotChatterTimers.AddThinker <- function(name, delay, func, params = {})
 	{
 		if (!name || name == "")
@@ -89,7 +89,7 @@ if (!("BotChatterTimers" in getroottable()))
 			error("[BotChatterTimers][WARN] AddThinker - A thinker with this name already exists: " + name + "\n");
 			return false;
 		}
-		
+
 		local si = getstackinfos(2);
 		local f = "";
 		local s = "";
@@ -101,14 +101,14 @@ if (!("BotChatterTimers" in getroottable()))
 		if ("line" in si)
 			l = si.line;
 		local dbgInfo = "Func: " + f + " - Src: " + s + " - Line: " + l;
-		
+
 		local thinkerEnt = SpawnEntityFromTable("info_target", { targetname = "botchattertimers_" + name });
 		if (!thinkerEnt || !thinkerEnt.IsValid())
 		{
 			error("[BotChatterTimers][ERROR] Failed to spawn thinker entity for thinker '" + name + "'!\n");
 			return false;
 		}
-		
+
 		thinkerEnt.ValidateScriptScope();
 		local scope = thinkerEnt.GetScriptScope();
 		scope.ThinkerName <- name;
@@ -118,13 +118,13 @@ if (!("BotChatterTimers" in getroottable()))
 		scope.ThinkerDbgInfo <- dbgInfo;
 		scope["ThinkerThinkFunc"] <- ::BotChatterTimers.ThinkerThinkFunc;
 		AddThinkToEnt(thinkerEnt, "ThinkerThinkFunc");
-			
+
 		local thinker = { Delay = delay, Func = func, params = params, Ent = thinkerEnt, DbgInfo = dbgInfo };
 		::BotChatterTimers.Thinkers[name] <- thinker;
-		
+
 		return true;
 	}
-	
+
 	::BotChatterTimers.RemoveThinker <- function(name)
 	{
 		if (!(name in ::BotChatterTimers.Thinkers))
@@ -132,18 +132,18 @@ if (!("BotChatterTimers" in getroottable()))
 			//error("[BotChatterTimers][WARN] RemoveThinker - A thinker with this name does not exist: " + name + "\n");
 			return false;
 		}
-		
+
 		local thinkerEnt = ::BotChatterTimers.Thinkers[name].Ent;
 		if (thinkerEnt && thinkerEnt.IsValid())
 			thinkerEnt.Kill();
 		else
 			error("[BotChatterTimers][WARN] RemoveThinker - Thinker '" + name + "' had no valid entity\n");
-		
+
 		delete ::BotChatterTimers.Thinkers[name];
-		
+
 		return true;
 	}
-	
+
 	::BotChatterTimers.ThinkerThinkFunc <- function()
 	{
 		try
@@ -154,7 +154,7 @@ if (!("BotChatterTimers" in getroottable()))
 		{
 			error("[BotChatterTimers][ERROR] Exception in thinker '" + ThinkerName + "': " + exception + " (" + ThinkerDbgInfo + ")\n");
 		}
-		
+
 		return ThinkerDelay;
 	}
 }
@@ -168,7 +168,7 @@ if (!::BotChatterTimers.DummyEnt || !::BotChatterTimers.DummyEnt.IsValid())
 		local scope = ::BotChatterTimers.DummyEnt.GetScriptScope();
 		scope["L4TThinkFunc"] <- ::BotChatterTimers.ThinkFunc;
 		AddThinkToEnt(::BotChatterTimers.DummyEnt, "L4TThinkFunc");
-			
+
 		printl("[BotChatterTimers][DEBUG] Spawned dummy entity");
 	}
 	else
